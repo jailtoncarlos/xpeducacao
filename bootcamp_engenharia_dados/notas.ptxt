@@ -1,0 +1,37 @@
+Pentaho download
+https://www.hitachivantara.com/pentaho/pentaho-plus-platform/data-integration-analytics/pentaho-community-edition.html
+
+MySQL Connector/j 8.40
+https://dev.mysql.com/downloads/connector/j/
+
+
+
+
+
+Docker Pentaho
+https://saritsi.medium.com/containerizing-airflow-pentaho-data-integration-using-docker-ad51f85dec7d
+https://github.com/sarit-si/docker-airflow-pdi-01
+
+
+
+** Carte Webserver **
+localhost:8181/kettle/status
+
+
+
+**Pentaho PDI**
+Spoom - Ferramnta gráfica com que se desenha e testa todo processo do PDI
+Pentaho/data-integraation94/Spoom.sh
+
+Kitchen - Ferramenta usada para executar Jobs a partir de janelas de terminais
+Pentaho/data-integraation94/Kitche.sh
+
+
+
+** Apache HOP **
+https://github.com/apache/hop
+- DOCKER CONTAINER: https://hop.apache.org/tech-manual/latest/docker-container.html
+- Run Apache Hop workflows and pipelines in Apache Airflow: https://github.com/knowbi/5-minutes-to/tree/main?tab=readme-ov-file
+- RUN WORKFLOWS AND PIPELINES IN APACHE AIRFLOW: https://hop.apache.org/manual/latest/how-to-guides/run-hop-in-apache-airflow.html
+
+

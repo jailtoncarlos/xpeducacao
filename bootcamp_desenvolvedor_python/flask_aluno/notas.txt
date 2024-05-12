@@ -1,0 +1,8 @@
+- python app.py para inicializar a aplicação
+- flask db init (para inicializar o banco),
+- flask db migrate -m "primeira migração." (comando de criação de migração)
+- flask db upgrade (comando que aplica a migração no banco de dados).
+
+
+Lembre-se que se trata do banco de dados sqlite que está na mesma pasta do arquivo app.py
+e tem o nome data.db (lembre-se que foi configurado assim no arquivo config.py).

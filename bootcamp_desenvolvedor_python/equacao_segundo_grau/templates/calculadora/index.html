@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Equação do Segundo Grau</title>
+</head>
+<body>
+    <h1>Insira os coeficientes da equação (a, b, c):</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="a" placeholder="a" required>
+        <input type="number" name="b" placeholder="b" required>
+        <input type="number" name="c" placeholder="c" required>
+        <button type="submit">Calcular</button>
+    </form>
+</body>
+</html>

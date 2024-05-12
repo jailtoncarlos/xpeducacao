@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Update User</title>
+</head>
+<body>
+    <h1>Update User</h1>
+    <form id="updateUserForm">
+        <input type="hidden" id="userId">
+        <label>Name:<input type="text" id="name"></label><br>
+        <label>Phone:<input type="text" id="phone"></label><br>
+        <label>Address:<input type="text" id="address"></label><br>
+        <label>CPF:<input type="text" id="cpf"></label><br>
+        <button type="submit">Update</button>
+    </form>
+    <script>
+        // Parse the user ID from URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+        document.getElementById('userId').value = userId;
+
+        // Fetch user details and populate the form
+        fetch(`/user/${userId}`)
+            .then(response => response.json())
+            .then(user => {
+                document.getElementById('name').value = user.name;
+                document.getElementById('phone').value = user.phone;
+                document.getElementById('address').value = user.address;
+                document.getElementById('cpf').value = user.cpf;
+            })
+            .catch(error => console.error('Error loading user:', error));
+
+        // Handle form submission for updating the user
+        document.getElementById('updateUserForm').onsubmit = function(event) {
+            event.preventDefault();
+            fetch(`/user/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    cpf: document.getElementById('cpf').value
+                })
+            }).then(response => {
+                if (response.ok) return response.json();
+                throw new Error('Failed to update user');
+            }).then(data => {
+                alert('User updated successfully');
+                window.location.href = '/';
+            }).catch(error => console.error('Error updating user:', error));
+        };
+    </script>
+</body>
+</html>

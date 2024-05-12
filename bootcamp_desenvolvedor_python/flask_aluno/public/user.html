@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View User</title>
+</head>
+<body>
+    <h1>User Details</h1>
+    <div>Name: <span id="name"></span></div>
+    <div>Phone: <span id="phone"></span></div>
+    <div>Address: <span id="address"></span></div>
+    <div>CPF: <span id="cpf"></span></div>
+    <script>
+        const userId = new URLSearchParams(window.location.search).get('id');
+
+        if (userId) {
+            fetch(`/user/${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('name').textContent = data.name;
+                    document.getElementById('phone').textContent = data.phone;
+                    document.getElementById('address').textContent = data.address;
+                    document.getElementById('cpf').textContent = data.cpf;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            alert('No user ID provided!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create User</title>
+</head>
+<body>
+    <h1>Create New User</h1>
+    <form id="createUserForm">
+        <label>Name:<input type="text" id="name"></label><br>
+        <label>Phone:<input type="text" id="phone"></label><br>
+        <label>Address:<input type="text" id="address"></label><br>
+        <label>CPF:<input type="text" id="cpf"></label><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('createUserForm').onsubmit = function(event) {
+            event.preventDefault();
+            fetch('/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    cpf: document.getElementById('cpf').value
+                })
+            }).then(response => {
+                if (response.ok) return response.json();
+                throw new Error('Something went wrong');
+            }).then(data => {
+                window.location.href = '/';
+            }).catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>

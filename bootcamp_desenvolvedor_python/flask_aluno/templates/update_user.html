@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update User</title>
+</head>
+<body>
+    <h1>Update User</h1>
+    <form method="POST" action="/user/{{ user.id }}/update">
+        <label>Name:<input type="text" name="name" value="{{ user.name }}"></label><br>
+        <label>Phone:<input type="text" name="phone" value="{{ user.phone }}"></label><br>
+        <label>Address:<input type="text" name="address" value="{{ user.address }}"></label><br>
+        <label>CPF:<input type="text" name="cpf" value="{{ user.cpf }}"></label><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
