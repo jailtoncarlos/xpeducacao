@@ -1,0 +1,102 @@
+Branch
+https://docs.astronomer.io/learn/airflow-branch-operator
+
+air flow decorators
+https://docs.astronomer.io/learn/airflow-decorators
+
+Run data quality checks using SQL check operators
+https://docs.astronomer.io/learn/airflow-sql-data-quality
+------------------------------------------------------------------------
+https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html
+
+Create dynamic Airflow tasks
+https://docs.astronomer.io/learn/dynamic-tasks?tab=taskflow#dynamic-task-concepts
+
+Melhores práticas
+https://ayc-data.com/data_engineering/2021/05/21/airflow-best-practices.html
+
+GCP Airflow template_searchpath Explained
+GCP Airflow template_searchpath Explained
+------------------------------------------------------------------------
+Load JSON data into postgres table using airflow
+https://stackoverflow.com/questions/74633594/load-json-data-into-postgres-table-using-airflow
+
+Como trabalhar com dados JSON no GoogleSQ
+https://cloud.google.com/bigquery/docs/json-data?hl=pt-br
+------------------------------------------------------------------------
+Estudo Airflow - Pipelines de Engenharia de Dados
+
+- https://ilegra.com/blog/apache-airflow-maestro-de-pipelines-de-tarefas-agendadas/
+- https://www.aquare.la/apache-airflow-o-que-e-e-como-funciona/
+- https://blog.dsacademy.com.br/apache-airflow-caracteristicas-vantagens-e-desvantagens-no-cenario-da-engenharia-de-dados/
+- Primeiros passos com o Apache Airflow: ETL fácil, robusto e de baixo custo (https://medium.com/data-hackers/primeiros-passos-com-o-apache-airflow-etl-f%C3%A1cil-robusto-e-de-baixo-custo-f80db989edae)
+export SLUGIFY_USES_TEXT_UNIDECODE=yes
+export LC_ALL=”en_US.UTF-8"
+export LC_CTYPE=”en_US.UTF-8"
+-https://www.alura.com.br/artigos/airflow-entendendo-dags
+- https://medium.com/@thehippieandtheboss/13-connecting-airflow-to-a-local-postgres-database-21f5bc849344
+- https://hevodata.com/learn/airflow-postgres-operator/
+- https://www.eia.ai/domine-apache-airflow-pipelines-de-egenharia-de-dados-2023
+
+## The list of Airflow trigger rules trigger_rule- TriggerRule.ONE_SUCCESS
+https://marclamberti.com/blog/airflow-trigger-rules-all-you-need-to-know/
+https://gowrishankar.info/blog/airflow-trigger-rules-for-building-complex-data-pipelines-explained-and-my-initial-days-of-airflow-selection-and-experience/
+
+## Better Data Science
+https://betterdatascience.com/apache-airflow-postgres-database/
+
+
+------------------------------------------------------------------------
+Airflow Comandos
+./airflow.sh dags test etl_aai
+./airflow.sh tasks test etl_aai is_db_superset_available
+
+
+./airflow.sh info
+
+./airflow.sh connections test vpn_ifrn_superset
+
+./airflow.sh dags list
+
+------------------------------------------------------------------------
+https://www.google.com/search?q=airflow+postgresoperator+select+statement+read+rows&sca_esv=568646023&rlz=1C1CHZN_pt-BRBR1054BR1054&ei=SGITZd2HNPfW1sQP2qOSgAk&oq=airflow+PostgresOperator+select+stat&gs_lp=Egxnd3Mtd2l6LXNlcnAiJGFpcmZsb3cgUG9zdGdyZXNPcGVyYXRvciBzZWxlY3Qgc3RhdCoCCAEyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGApIxh5QAFjODnAAeAGQAQCYAd0BoAHLD6oBBTAuOS4yuAEDyAEA-AEBwgIGEAAYFhgewgIIEAAYCBgeGA3CAggQIRgWGB4YHeIDBBgAIEGIBgE&sclient=gws-wiz-serp#fpstate=ive&vld=cid:280ffc31,vid:ATUARuFh3JQ,st:0
+
+https://youtu.be/ATUARuFh3JQ
+------------------------------------------------------------------------
+Docker
+docker compose --profile debug up
+docker inspect opensearchproject/opensearch:2.2.0
+docker update --restart=no opensearchproject/opensearch:2.2.0
+
+docker ps -a
+
+docker rm -v <container_name>
+
+docker system prune -af
+docker container prune
+docker volume prune
+
+
+# Removendo todos os volumes
+docker volume rm -f $(docker volume ls -q)
+
+# Remove todos os containers
+docker rm -f $(docker ps -a -q)
+
+------------------------------------------------------------------------
+Linux
+
+- sudo mount --bind /mnt/c /c
+- netstat -plnt
+- route
+- sudo Nmap -sS target server-IP -p
+- ifconfig | grep inet | grep mask
+- printenv
+
+ping 10.22.1.250
+- iptables
+  - https://www.ppgia.pucpr.br/pt/arquivos/techdocs/linux/foca-avancado/ch-fw-iptables.html#s-fw-iptables-exemplo-snat
+------------------------------------------------------------------------
+PSQL
+PGPASSWORD=superset psql -h localhost -p 15432 -U superset superset -c "SELECT count(*) FROM information_schema.tables WHERE table_schema = 'public';"
+psql postgresql://superset:superset@vpn:15432/superset

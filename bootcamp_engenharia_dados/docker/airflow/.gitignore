@@ -1,0 +1,9 @@
+.env
+dags/*
+app/*
+config/*
+include/*
+logs/*
+plugins/*
+airflow/logs/
+airflow/plugins
