@@ -1,11 +1,11 @@
 {
   "base_filename": "programa-capes-2018.csv",
   "name": "programa-capes-2018",
-  "description": "",
+  "description": "Dataset Programa CAPES  2018",
   "dataset_fields": [
     {
       "field_comment": "",
-      "field_length": 15,
+      "field_length": 4,
       "field_type": 2,
       "field_precision": -1,
       "field_name": "AN_BASE",

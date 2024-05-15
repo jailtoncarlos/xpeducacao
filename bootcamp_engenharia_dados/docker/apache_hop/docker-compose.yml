@@ -1,70 +1,90 @@
 version: '3.9'
 
 services:
-#  Hop Server é um servidor leve para executar fluxos de trabalho e pipelines com configurações de pipeline remoto ou execução de fluxo de trabalho remoto.
   hop-server:
     container_name: hop-server
     image: apache/hop:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#      args:
+#        USER_ID: ${UID:-1000}
+#        GROUP_ID: ${GID:-1000}
     restart: unless-stopped
+#    user: "${UID}:${GID}"
     ports:
       - 8181:8181 #Porta 8182 do host mapeada para a porta 8081 do contêiner
       - 8079:8079
+#    entrypoint: ["/bin/bash", "-c", "chown -R ${UID}:${GID} /hop/projects && exec catalina.sh run"]
     environment:
-      HOP_PROJECT_NAME: engdados
-      HOP_PROJECT_FOLDER: /hop/projects
-#      HOP_CONFIG_FOLDER: /hop/projects/config
-      HOP_SERVER_USER: admin
-      HOP_SERVER_PASS: admin
-      HOP_SERVER_PORT: 8181
-      HOP_SERVER_HOSTNAME: 0.0.0.0
-      HOP_SERVER_SHUTDOWNPORT: 8079
-      HOP_RUN_CONFIG: local #execução local no container
+#      UID: ${UID:-1000}
+#      GID: ${GID:-1000}
+      HOP_PROJECT_NAME: ${HOP_PROJECT_NAME:-engdados}
+      HOP_PROJECT_FOLDER: ${HOP_PROJECT_FOLDER:-/hop/projects}
+      HOP_RUN_CONFIG: ${HOP_RUN_CONFIG:-local} #execução local no container
+      HOP_SERVER_USER: ${HOP_SERVER_USER:-admin}
+      HOP_SERVER_PASS: ${HOP_SERVER_PASS:-admin}
+      HOP_SERVER_PORT: ${HOP_SERVER_PORT:-8181}
+      HOP_SERVER_SHUTDOWNPORT: ${HOP_SERVER_SHUTDOWNPORT:-8079}
+      HOP_SERVER_HOSTNAME: ${HOP_SERVER_HOSTNAME:-0.0.0.0}
+      HOP_ENVIRONMENT_NAME: ${HOP_ENVIRONMENT_NAME:-Development}
       TZ: America/Recife
+#      HOP_CONFIG_FOLDER: /hop/projects/config
 #      HOP_LOG_LEVEL: Basic
 #      HOP_ENVIRONMENT_NAME: dev
 #      HOP_ENVIRONMENT_CONFIG_FILE_NAME_PATHS: /files/config/web-samples-test.json --name hop-web-test-container
 #      HOP_FILE_PATH: ${PROJECT_HOME}/write-to-log.hwf
 #    HOP_PROJECT_CONFIG_FILE_NAME: project-config.json
     volumes:
-      #  You can use it for example to mount a folder that contains the hop and project config as well as the workflows and pipelines.
       - ./data/server/projects:/hop/projects
-#      - ./data/server/config:/hop/projects/config
-#      - ./var:/home/hop
-#      - ./hop-server-config:/home/hop/.hop
-#      - hop-data:/data
     networks:
       - hop-network
 
 
   hop-web:
-    image: apache/hop-web:latest
     container_name: hop-web
+#    image: apache/hop-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-hop-web
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     restart: unless-stopped
     ports:
       - 8080:8080
+#    user: root
+#    entrypoint: >
+#      /bin/bash -c "
+#      mkdir -p /hop/projects/config &&
+#      mkdir -p /hop/projects/metadata &&
+#      mkdir -p /hop/projects/files &&
+#      mkdir -p /hop/projects/datasets &&
+#      mkdir -p /hop/projects/pipelines &&
+#      mkdir -p /hop/projects/transforms &&
+#      mkdir -p /hop/projects/workflows &&
+#      chown -R ${UID}:${GID} /hop/projects/ &&
+#      exec /tmp/run-web.sh
+#      "
+
+#    entrypoint: ["/bin/bash", "-c", "chown -R ${UID}:${GID} /hop/projects && exec /tmp/run-web.sh"]
     environment:
-      HOP_PROJECT_NAME: engdados
-      HOP_PROJECT_FOLDER: /hop/projects
-      HOP_RUN_CONFIG: local #execução local no container
+      UID: ${UID:-1000}
+      GID: ${GID:-1000}
+      HOP_PROJECT_NAME: ${HOP_PROJECT_NAME:-engdados}
+      HOP_PROJECT_FOLDER: ${HOP_PROJECT_FOLDER:-/hop/projects}
+      HOP_RUN_CONFIG: ${HOP_RUN_CONFIG:-local} #execução local no container
+      HOP_ENVIRONMENT_NAME: ${HOP_ENVIRONMENT_NAME:-Development}
       TZ: America/Recife
 #      HOP_CONFIG_FOLDER: /hop/projects/config
 #      HOP_LOG_LEVEL: Basic
 #      HOP_ENVIRONMENT_NAME: dev
     volumes:
       - ./data/web_ui/projects:/hop/projects
-#      - ./data/web_ui/config:/usr/local/tomcat/webapps/ROOT/config/
-#      - ./data/web_ui/config:/hop/projects/config
-# as ferramentas estão disponíveis em /usr/local/tomcat/webapps/ROOT em um contêiner Hop Web em execução.
-#      - hop-data:/data
-#      - ./hop-web-config:/home/hop/.hop
     networks:
       - hop-network
     depends_on:
       - hop-server
-
-
-#volumes:
-#  hop-data:
 
 networks:
   hop-network:

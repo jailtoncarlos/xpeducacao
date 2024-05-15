@@ -1,0 +1,32 @@
+FROM apache/hop-web:latest
+
+USER root
+
+# Instala gosu para alternar o usuário
+RUN apt-get update && apt-get install -y gosu && rm -rf /var/lib/apt/lists/*
+
+# Cria os diretórios necessários
+RUN mkdir -p /hop/projects/metadata \
+    && mkdir -p /hop/projects/files \
+    && mkdir -p /hop/projects/datasets \
+    && mkdir -p /hop/projects/pipelines \
+    && mkdir -p /hop/projects/transforms \
+    && mkdir -p /hop/projects/workflows
+
+# Cria um novo usuário e grupo com UID e GID especificados
+ARG USER_ID
+ARG GROUP_ID
+RUN addgroup --gid ${GROUP_ID} hopgroup && \
+    adduser --disabled-password --gecos '' --uid ${USER_ID} --gid ${GROUP_ID} hopuser
+
+# Ajusta as permissões dos diretórios
+RUN chown -R hopuser:hopgroup /hop
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Define o entrypoint para usar gosu
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Comando padrão para iniciar o servidor Hop
+CMD ["/tmp/run-web.sh"]
