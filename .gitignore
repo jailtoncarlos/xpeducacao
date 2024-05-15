@@ -2,6 +2,8 @@
 **/__pycache__/
 **/.idea/
 
+**/apache_hop/metadata/
+
 **/airflow/dags/*
 **/airflow/config/*
 **/airflow/logs/*
