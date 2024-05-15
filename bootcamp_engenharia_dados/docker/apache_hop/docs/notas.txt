@@ -1,16 +1,36 @@
-https://www.youtube.com/watch?v=lTqDlK37aEA
 
-# Apache Hop
 
+
+-------------------------------------------------------------------------------------
+# Pipelines de Dados com Apache Hop
+https://www.cienciaedados.com/pipelines-de-dados-com-apache-hop/
+
+O Apache Hop (Hop Orchestration Platform) é desenvolvido por uma comunidade aberta e amigável. Todos são bem-vindos para se juntar à comunidade e contribuir para o Apache Hop.
+
+
+## Componentes do Apache Hop
+O Hop tem três componentes principais a seguir:
+
+Hop GUI: É um editor de interface gráfica para construção de pipelines (transformações) e fluxos de trabalho (jobs). Ele permite que você crie tarefas complexas de ETL (Extract, Transformation, Load) sem escrever nenhum código. Ele fornece uma interface de arrastar e soltar que permite criar, editar, executar ou depurar um pipeline ou fluxo de trabalho.
+
+Hop Run: É um utilitário CLI (Command Line Interface) autônomo que pode ser usado para executar pipeline e fluxo de trabalho.
+
+Hop Server: É um contêiner web leve que permite executar o pipeline e o fluxo de trabalho em um servidor remoto e que pode ser implantado em vários servidores. Ele também fornece uma API REST para invocar remotamente seu fluxo de trabalho e pipeline.
+
+
+-------------------------------------------------------------------------------------
+#
 ## Hop WEB SERVICE
 https://hop.apache.org/manual/latest/hop-server/web-service.html
 
 ## HOP WEB
 https://hop.apache.org/manual/latest/hop-gui/hop-web.html
 
+-------------------------------------------------------------------------------------
 # Executando um pipeline no Hop-Server através do Apache Hop
 https://arrudaconsulting.com.br/executando-um-pipeline-no-hop-server-atraves-do-apache-hop/
 
+-------------------------------------------------------------------------------------
 # Hop Server e Hop Gui
 Usar a Hop GUI para executar pipelines ou fluxos de trabalho remotamente usando o Hop Server. Para isso adicionarei o Hop Server e uma configuração de execução de pipeline remoto dentro do cliente como metadados.
 
@@ -23,6 +43,28 @@ https://fictionbecomesfact.com/hop-gui-remote-pipeline
 ## Apache Hop - Setup Web Service with Hop Server Docker Container
 https://fictionbecomesfact.com/hop-server-web-service
 
-
+-------------------------------------------------------------------------------------
 # Apache Airflow vs Apache Hop: Which Tool is Better for Your Next Project?
 https://www.projectpro.io/compare/apache-airflow-vs-apache-hop
+
+-------------------------------------------------------------------------------------
+# Gestão de Ambientes no Apache HOP [Environment] - Dev & Prd
+https://www.youtube.com/watch?v=RDUYzsEihWo
+
+-------------------------------------------------------------------------------------
+# Cursos
+
+## PySpark e APACHE HOP: processamento e pipelines de dados
+https://www.udemy.com/course/pyspark-e-apache-hop-processamento-e-pipelines-de-dados/?couponCode=LEADERSALE24A
+
+## APACHE HOP: Integração e Ingestão de dados - PARTE01
+https://www.udemy.com/course/apache-hop-integracao-e-ingestao-de-dados/?couponCode=LEADERSALE24A
+
+-------------------------------------------------------------------------------------
+# Vídeos
+
+## Transformando dados com o Apache Hop - Alan Mussoi
+https://www.youtube.com/watch?v=1xDuUCERhsk
+
+##
+https://www.youtube.com/watch?v=lTqDlK37aEA
