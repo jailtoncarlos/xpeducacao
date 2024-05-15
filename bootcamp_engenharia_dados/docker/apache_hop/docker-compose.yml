@@ -3,22 +3,22 @@ version: '3.9'
 services:
   hop-server:
     container_name: hop-server
-    image: apache/hop:latest
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#      args:
-#        USER_ID: ${UID:-1000}
-#        GROUP_ID: ${GID:-1000}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_IMAGE: apache/hop:latest
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}"
+    command: ["/opt/hop/run.sh"]
     restart: unless-stopped
-#    user: "${UID}:${GID}"
     ports:
       - 8181:8181 #Porta 8182 do host mapeada para a porta 8081 do contêiner
       - 8079:8079
-#    entrypoint: ["/bin/bash", "-c", "chown -R ${UID}:${GID} /hop/projects && exec catalina.sh run"]
     environment:
-#      UID: ${UID:-1000}
-#      GID: ${GID:-1000}
+      UID: ${UID:-1000}
+      GID: ${GID:-1000}
       HOP_PROJECT_NAME: ${HOP_PROJECT_NAME:-engdados}
       HOP_PROJECT_FOLDER: ${HOP_PROJECT_FOLDER:-/hop/projects}
       HOP_RUN_CONFIG: ${HOP_RUN_CONFIG:-local} #execução local no container
@@ -40,34 +40,20 @@ services:
     networks:
       - hop-network
 
-
   hop-web:
     container_name: hop-web
-#    image: apache/hop-web:latest
     build:
       context: .
-      dockerfile: Dockerfile-hop-web
+      dockerfile: Dockerfile
       args:
+        BASE_IMAGE: apache/hop-web:latest
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}"
+    command: ["/tmp/run-web.sh"]
     restart: unless-stopped
     ports:
       - 8080:8080
-#    user: root
-#    entrypoint: >
-#      /bin/bash -c "
-#      mkdir -p /hop/projects/config &&
-#      mkdir -p /hop/projects/metadata &&
-#      mkdir -p /hop/projects/files &&
-#      mkdir -p /hop/projects/datasets &&
-#      mkdir -p /hop/projects/pipelines &&
-#      mkdir -p /hop/projects/transforms &&
-#      mkdir -p /hop/projects/workflows &&
-#      chown -R ${UID}:${GID} /hop/projects/ &&
-#      exec /tmp/run-web.sh
-#      "
-
-#    entrypoint: ["/bin/bash", "-c", "chown -R ${UID}:${GID} /hop/projects && exec /tmp/run-web.sh"]
     environment:
       UID: ${UID:-1000}
       GID: ${GID:-1000}
