@@ -1,0 +1,8 @@
+**/.env
+**/__pycache__/
+**/.idea/
+
+**/airflow/dags/*
+**/airflow/config/*
+**/airflow/logs/*
+**/airflow/plugins/*

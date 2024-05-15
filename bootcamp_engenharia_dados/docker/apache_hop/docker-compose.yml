@@ -1,23 +1,71 @@
 version: '3.9'
 
 services:
-  apache-hop:
-    container_name: hop_container
+#  Hop Server é um servidor leve para executar fluxos de trabalho e pipelines com configurações de pipeline remoto ou execução de fluxo de trabalho remoto.
+  hop-server:
+    container_name: hop-server
     image: apache/hop:latest
+    restart: unless-stopped
     ports:
-      - 8081:8081
+      - 8181:8181
+      - 8079:8079
+    environment:
+      HOP_PROJECT_NAME: apache-hop-minimum-project
+      HOP_SERVER_USER: admin
+      HOP_SERVER_PASS: admin
+      HOP_SERVER_PORT: 8181
+      HOP_SERVER_HOSTNAME: 0.0.0.0
+      HOP_SERVER_SHUTDOWNPORT: 8079
+      HOP_LOG_LEVEL: Basic
+
+      HOP_PROJECT_FOLDER: /files/
+      HOP_ENVIRONMENT_NAME: dev
+      HOP_RUN_CONFIG: local #execução local no container
+      TZ: America/Recife
+#      HOP_ENVIRONMENT_CONFIG_FILE_NAME_PATHS: /files/config/web-samples-test.json --name hop-web-test-container
+#      HOP_FILE_PATH: ${PROJECT_HOME}/write-to-log.hwf
+#      ${HOP_CONFIG_FOLDER}
+#    HOP_PROJECT_CONFIG_FILE_NAME: project-config.json
     volumes:
 #      - ./var:/home/hop
       - ./files:/files  #  You can use it for example to mount a folder that contains the hop and project config as well as the workflows and pipelines.
-    environment:
-      HOP_SERVER_USER: cluster
-      HOP_SERVER_PASS: cluster
-      HOP_SERVER_PORT: 8081
-      HOP_SERVER_HOSTNAME: 0.0.0.0 #Placeholder for testing
-      HOP_PROJECT_NAME: hop_container
-      HOP_FILE_PATH: ${PROJECT_HOME}/write-to-log.hwf
-      HOP_PROJECT_DIRECTORY: /files/
-      HOP_ENVIRONMENT_NAME: test
-      HOP_ENVIRONMENT_CONFIG_FILE_NAME_PATHS: test
-      HOP_RUN_CONFIG: local
+#      - ./hop-server-config:/home/hop/.hop
+#      - hop-data:/data
+    networks:
+      - hop-network
 
+
+  hop-web:
+    image: apache/hop-web:latest
+    container_name: hop-web
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      HOP_PROJECT_NAME: apache-hop-minimum-project
+      HOP_SERVER_HOST: hop-server
+      HOP_SERVER_PORT: 8081
+#      HOP_USER: admin
+#      HOP_PASSWORD: admin
+#      HOP_LOG_LEVEL: Basic
+#      HOP_PROJECT_FOLDER: /files/
+#      HOP_PROJECT_NAME: engdados
+#      HOP_PROJECT_FOLDER: /project
+#      HOP_ENVIRONMENT_CONFIG_FILE_NAME_PATHS: /files/config/web-samples-test.json --name hop-web-test-container
+      HOP_ENVIRONMENT_NAME: dev
+    volumes:
+#      - hop-data:/data
+      - ./files:/files
+#      - ./hop-web-config:/home/hop/.hop
+    networks:
+      - hop-network
+    depends_on:
+      - hop-server
+
+
+volumes:
+  hop-data:
+
+networks:
+  hop-network:
+    driver: bridge

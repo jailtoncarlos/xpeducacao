@@ -1,0 +1,28 @@
+https://www.youtube.com/watch?v=lTqDlK37aEA
+
+# Apache Hop
+
+## Hop WEB SERVICE
+https://hop.apache.org/manual/latest/hop-server/web-service.html
+
+## HOP WEB
+https://hop.apache.org/manual/latest/hop-gui/hop-web.html
+
+# Executando um pipeline no Hop-Server através do Apache Hop
+https://arrudaconsulting.com.br/executando-um-pipeline-no-hop-server-atraves-do-apache-hop/
+
+# Hop Server e Hop Gui
+Usar a Hop GUI para executar pipelines ou fluxos de trabalho remotamente usando o Hop Server. Para isso adicionarei o Hop Server e uma configuração de execução de pipeline remoto dentro do cliente como metadados.
+
+## Docker - Hop Server Container Setup
+https://fictionbecomesfact.com/hop-server-container
+
+## Apache Hop - Use Hop GUI with Remote Pipeline Engine Setup
+https://fictionbecomesfact.com/hop-gui-remote-pipeline
+
+## Apache Hop - Setup Web Service with Hop Server Docker Container
+https://fictionbecomesfact.com/hop-server-web-service
+
+
+# Apache Airflow vs Apache Hop: Which Tool is Better for Your Next Project?
+https://www.projectpro.io/compare/apache-airflow-vs-apache-hop

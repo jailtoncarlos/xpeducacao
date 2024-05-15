@@ -1,3 +1,37 @@
+# INSTALAÇÃO
+
+fonte: https://airflow.apache.org/docs/apache-airflow/2.9.1/howto/docker-compose/index.html
+
+## Setting the right Airflow user
+mkdir -p ./dags ./logs ./plugins ./config
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+
+## Initialize the database
+docker compose up airflow-init
+
+## Cleaning-up the environment
+docker compose down --volumes --remove-orphan
+
+## Running Airflow
+docker compose up
+
+## Running the CLI commands
+https://airflow.apache.org/docs/apache-airflow/2.9.1/airflow.sh
+
+./airflow.sh dags test etl_aai
+./airflow.sh tasks test etl_aai is_db_superset_available
+
+./airflow.sh info
+
+./airflow.sh connections test vpn_ifrn_superset
+
+./airflow.sh dags list
+
+_______________________________________________________________________________________________
+_______________________________________________________________________________________________
+
+
+
 Branch
 https://docs.astronomer.io/learn/airflow-branch-operator
 
@@ -46,17 +80,7 @@ https://gowrishankar.info/blog/airflow-trigger-rules-for-building-complex-data-p
 https://betterdatascience.com/apache-airflow-postgres-database/
 
 
-------------------------------------------------------------------------
-Airflow Comandos
-./airflow.sh dags test etl_aai
-./airflow.sh tasks test etl_aai is_db_superset_available
 
-
-./airflow.sh info
-
-./airflow.sh connections test vpn_ifrn_superset
-
-./airflow.sh dags list
 
 ------------------------------------------------------------------------
 https://www.google.com/search?q=airflow+postgresoperator+select+statement+read+rows&sca_esv=568646023&rlz=1C1CHZN_pt-BRBR1054BR1054&ei=SGITZd2HNPfW1sQP2qOSgAk&oq=airflow+PostgresOperator+select+stat&gs_lp=Egxnd3Mtd2l6LXNlcnAiJGFpcmZsb3cgUG9zdGdyZXNPcGVyYXRvciBzZWxlY3Qgc3RhdCoCCAEyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGAoyBxAhGKABGApIxh5QAFjODnAAeAGQAQCYAd0BoAHLD6oBBTAuOS4yuAEDyAEA-AEBwgIGEAAYFhgewgIIEAAYCBgeGA3CAggQIRgWGB4YHeIDBBgAIEGIBgE&sclient=gws-wiz-serp#fpstate=ive&vld=cid:280ffc31,vid:ATUARuFh3JQ,st:0
