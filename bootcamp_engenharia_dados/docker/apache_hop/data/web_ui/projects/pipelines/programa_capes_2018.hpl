@@ -48,13 +48,13 @@
     <fields>
       <field>
         <name>AN_BASE</name>
-        <type>Integer</type>
-        <format>#</format>
+        <type>String</type>
+        <format/>
         <currency>¤</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>15</length>
-        <precision>0</precision>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
@@ -115,12 +115,12 @@
       <field>
         <name>CD_AREA_AVALIACAO</name>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <currency>¤</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>2</length>
-        <precision>0</precision>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
@@ -137,12 +137,12 @@
       <field>
         <name>CD_ENTIDADE_CAPES</name>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <currency>¤</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>8</length>
-        <precision>0</precision>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>

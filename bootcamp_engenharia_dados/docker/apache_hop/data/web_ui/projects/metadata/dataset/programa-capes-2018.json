@@ -1,0 +1,264 @@
+{
+  "base_filename": "programa-capes-2018.csv",
+  "name": "programa-capes-2018",
+  "description": "",
+  "dataset_fields": [
+    {
+      "field_comment": "",
+      "field_length": 15,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "AN_BASE",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 27,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_GRANDE_AREA_CONHECIMENTO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 37,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_AREA_CONHECIMENTO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 37,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_AREA_BASICA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 34,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_SUBAREA_CONHECIMENTO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 20,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_ESPECIALIDADE",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 2,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CD_AREA_AVALIACAO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 65,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_AREA_AVALIACAO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 8,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CD_ENTIDADE_CAPES",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 5,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CD_ENTIDADE_EMEC",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 14,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "SG_ENTIDADE_ENSINO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 56,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_ENTIDADE_ENSINO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 3,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "IN_REDE",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 12,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "SG_ENTIDADE_ENSINO_REDE",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 10,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CS_STATUS_JURIDICO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 7,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "DS_DEPENDENCIA_ADMINISTRATIVA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 20,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "DS_ORGANIZACAO_ACADEMICA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 12,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_REGIAO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 12,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "SG_UF_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 21,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_MUNICIPIO_PROGRAMA_IES",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 12,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_MODALIDADE_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 13,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CD_PROGRAMA_IES",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 61,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_PROGRAMA_IES",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 87,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_PROGRAMA_IDIOMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 38,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "NM_GRAU_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 40,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "CD_CONCEITO_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 21,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "AN_INICIO_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 9,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "AN_INICIO_CURSO",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 16,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "DS_SITUACAO_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 18,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "DT_SITUACAO_PROGRAMA",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 16,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "ID_ADD_FOTO_PROGRAMA_IES",
+      "field_format": ""
+    },
+    {
+      "field_comment": "",
+      "field_length": 18,
+      "field_type": 2,
+      "field_precision": -1,
+      "field_name": "ID_ADD_FOTO_PROGRAMA",
+      "field_format": ""
+    }
+  ],
+  "folder_name": ""
+}
